@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Agent/Agencies</h2>
+                <h2>Add New Shipper</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('agents.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('shippers.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -26,20 +26,26 @@
     @endif
 
 
-    <form action="{{ route('agents.store') }}" method="POST">
+    <form action="{{ route('shippers.store') }}" method="POST">
     	@csrf
         <input name="user_id" type="hidden" value="{{ $user_id }}">
          <div class="row">
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
-		            <strong>Agent/Agency Name:</strong>
-		            <input type="text" name="agency_name" class="form-control" placeholder="Agency Name">
+		            <strong>Company Name:</strong>
+		            <input type="text" name="company_name" class="form-control" placeholder="Company Name">
+		        </div>
+		    </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Contact Person:</strong>
+		            <input type="text" name="company_person" class="form-control" placeholder="Contact Person">
 		        </div>
 		    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Contact Number:</strong>
-		            <input type="text" name="contact_number" class="form-control" placeholder="Contact number">
+		            <input type="text" name="contact_number" class="form-control" placeholder="Contact Number">
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">

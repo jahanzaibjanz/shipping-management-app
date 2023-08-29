@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Agencies</h2>
+                <h2>Agents/Agencies</h2>
             </div>
             <div class="pull-right">
                 @can('agent-create')
-                <a class="btn btn-success" href="{{ route('agents.create') }}"> Create New Agencies</a>
+                <a class="btn btn-success" href="{{ route('agents.create') }}"> Create New Agent/Agencies</a>
                 @endcan
             </div>
         </div>
@@ -26,7 +26,7 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Agency Name</th>
+            <th>Agent/Agencies Name</th>
             <th>Contact Number</th>
             <th>Address</th>
             <th width="280px">Action</th>

@@ -4,6 +4,8 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ShipperController;
+use App\Http\Controllers\ShippingLineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +32,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('agents', AgentController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('clients', ClientController::class);
+    Route::resource('shippers', ShipperController::class);
+    Route::resource('shipping-lines', ShippingLineController::class);
 });

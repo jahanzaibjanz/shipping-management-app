@@ -28,6 +28,10 @@ class PermissionTableSeeder extends Seeder
             'client-create',
             'client-edit',
             'client-delete',
+            'shipper-list',
+            'shipper-create',
+            'shipper-edit',
+            'shipper-delete',
          ];
       
          foreach ($permissions as $permission) {

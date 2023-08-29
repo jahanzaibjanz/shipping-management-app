@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>All Companies</h2>
+                <h2>Shippers</h2>
             </div>
             <div class="pull-right">
                 @can('client-create')
-                <a class="btn btn-success" href="{{ route('clients.create') }}"> Create New Company</a>
+                <a class="btn btn-success" href="{{ route('shippers.create') }}"> Create New Shipper</a>
                 @endcan
             </div>
         </div>
@@ -32,23 +32,23 @@
             <th>Address</th>
             <th width="280px">Action</th>
         </tr>
-	    @foreach ($clients as $client)
+	    @foreach ($shippers as $shipper)
 	    <tr>
 	        <td>{{ ++$i }}</td>
-	        <td>{{ $client->company_name }}</td>
-	        <td>{{ $client->contact_person }}</td>
-            <td>{{ $client->contact_number }}</td>
-            <td>{{ $client->address }}</td>
+	        <td>{{ $shipper->company_name }}</td>
+	        <td>{{ $shipper->company_person }}</td>
+            <td>{{ $shipper->contact_number }}</td>
+            <td>{{ $shipper->address }}</td>
 	        <td>
-                <form action="{{ route('clients.destroy',$client->id) }}" method="POST">                    
-                    @can('client-edit')
-                    <a class="btn btn-primary" href="{{ route('clients.edit',$client->id) }}">Edit</a>
+                <form action="{{ route('shippers.destroy',$shipper->id) }}" method="POST">                    
+                    @can('shipper-edit')
+                    <a class="btn btn-primary" href="{{ route('shippers.edit',$shipper->id) }}">Edit</a>
                     @endcan
 
 
                     @csrf
                     @method('DELETE')
-                    @can('client-delete')
+                    @can('shipper-delete')
                     <button type="submit" class="btn btn-danger">Delete</button>
                     @endcan
                 </form>
@@ -58,6 +58,6 @@
     </table>
 
 
-    {!! $clients->links() !!}
+    {!! $shippers->links() !!}
 
 @endsection

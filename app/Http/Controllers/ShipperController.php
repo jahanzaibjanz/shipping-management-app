@@ -94,8 +94,9 @@ class ShipperController extends Controller
      */
     public function update(Request $request, Shipper $shipper)
     {
-         request()->validate([
-            'agency_name' => 'required',
+        request()->validate([
+            'company_name' => 'required',
+            'company_person' => 'required',
             'contact_number' => 'required',
             'address' => 'required',
         ]);

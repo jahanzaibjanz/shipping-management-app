@@ -41,7 +41,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Contact Person:</strong>
-		            <input type="text" name="contact_person" value="{{ $shipper->contact_person }}" class="form-control" placeholder="Contact Person">
+		            <input type="text" name="company_person" value="{{ $shipper->company_person }}" class="form-control" placeholder="Contact Person">
 		        </div>
 		    </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

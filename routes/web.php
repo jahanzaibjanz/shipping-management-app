@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ShipmentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShipperController;
 use App\Http\Controllers\ShippingLineController;
@@ -34,4 +35,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('clients', ClientController::class);
     Route::resource('shippers', ShipperController::class);
     Route::resource('shipping-lines', ShippingLineController::class);
+    Route::resource('shipments', ShipmentController::class);
 });

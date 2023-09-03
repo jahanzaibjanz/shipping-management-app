@@ -33,77 +33,54 @@
                                 @csrf
                                 <div class="form-group col-md-12" style="display: flex;">
                                 
-                                <select class="form-control">
-                                    <option>Select Shipper</option>
+                                <select class="form-control" name="shipper_id" required>
+                                    <option selected disabled>Select Shipper</option>
                                     @foreach($shippers as $shipper)
-                                    <option value="{{ $shipper->id }}">{{ $shipper->company_name }}</option>
+                                    <option value="{{$shipper->id}}">{{ $shipper->company_name }}</option>
                                     @endforeach
                                 </select>
-                                <select class="form-control">
-                                <option>Select Clients</option>
+                                <select class="form-control" name="client_id" required>
+                                <option selected disabled>Select Clients</option>
                                     @foreach($clients as $client)
-                                    <option value="{{ $client->id }}">{{ $client->company_name }}</option>                                                                        
+                                    <option value="{{$client->id}}">{{ $client->company_name }}</option>                                                                        
                                     @endforeach
                                 </select>
-                                <select class="form-control">
-                                    <option>Shipping Lines</option>
+                                <select class="form-control" name="shipping_line_id" required>
+                                    <option selected disabled>Shipping Lines</option>
                                     @foreach($shippinglines as $shippingline)
-                                    <option value="{{ $shippingline->id }}">{{ $shippingline->name }}</option>
+                                    <option value="{{$shippingline->id}}">{{ $shippingline->name }}</option>
                                     @endforeach
                                 </select>
-                                <select class="form-control">
-                                    <option>Agents</option>
+                                <select class="form-control" name="agent_id" required>
+                                    <option selected disabled>Agents</option>
                                     @foreach($agents as $agent)
-                                    <option value="{{ $agent->id }}">{{ $agent->agency_name }}</option>
+                                    <option value="{{$agent->id}}">{{ $agent->agency_name }}</option>
                                     @endforeach
                                 </select>
                                 </div>
 
                                     <div class="form-group col-md-12" style="display: flex;">                                    
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                         <label>Origin</label>                                            
-                                            <input type="text" class="form-control form-control-line" placeholder="Origin">
+                                            <input type="text" name="origin" class="form-control form-control-line" placeholder="Origin">
                                         </div>                                                                            
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                         <label>Destination</label>
-                                            <input type="email" placeholder="Destination" class="form-control form-control-line" name="destination">
+                                            <input type="text" name="destination" placeholder="Destination" class="form-control form-control-line" name="destination">
                                         </div>                                                       
-                                        <div class="form-group col-md-4">
-                                        <label>Shipping Date</label>                                                         
-                                            <input type="date" class="form-control form-control-line">
+                                        <div class="form-group col-md-3">
+                                        <label>Shipment Date</label>                                                         
+                                            <input type="date" name="shipment_date" class="form-control form-control-line">
                                         </div>
-                                    </div>
-
-                                   
-                                    <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890"
-                                                class="form-control form-control-line">
+                                        <div class="form-group col-md-3">
+                                        <label>Delivery Date</label>                                        
+                                            <input type="date" name="delivery_date" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
-                                        </div>
+                                        
+                                            <button class="btn btn-success">Add Shipment</button>
+                                        
                                     </div>
                                 </form>
                             </div>

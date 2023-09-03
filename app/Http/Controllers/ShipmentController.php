@@ -26,7 +26,14 @@ class ShipmentController extends Controller
     
     public function index()
     {
-        $shipments = Shipment::latest()->paginate(5);
+
+        $shipments = Shipment::join('shippers','shippers.id','=','shipments.shipper_id')
+        ->join('clients','clients.id','=','shipments.client_id')
+        ->join('shipping_lines','shipping_lines.id','=','shipments.shipping_line_id')
+        ->join('agents','agents.id','=','shipments.agent_id')
+        ->select('shipments.*','shippers.company_name as shipper','clients.company_name','shipping_lines.name','agents.agency_name')
+        ->get();
+
         return view('shipments.index',compact('shipments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -55,18 +62,16 @@ class ShipmentController extends Controller
      */
     public function store(Request $request)
     {
+
         request()->validate([
-            'shipper_id ' => 'required',
-            'client_id ' => 'required',
-            'shipping_line_id ' => 'required',
             'origin' => 'required',
             'destination' => 'required',
             'shipment_date' => 'required',
             'delivery_date' => 'required',
         ]);
-
+        
         Shipment::create($request->all());
-    
+
         return redirect()->route('shipments.index')
                         ->with('success','Product created successfully.');
         //

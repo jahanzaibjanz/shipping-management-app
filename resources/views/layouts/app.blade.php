@@ -57,16 +57,16 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="{{ URL::asset('/assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="{{ URL::asset('/assets/images/logo-light-icon.png') }}" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                             <!-- dark Logo text -->
-                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="{{ URL::asset('/assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                            <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>
+                            <img src="{{ URL::asset('/assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span>
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -98,7 +98,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="../assets/images/users/1.jpg" alt="user" class="img-circle" width="30"></a>
+                                    src="{{ URL::asset('/assets/images/users/1.jpg') }}" alt="user" class="img-circle" width="30"></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -115,7 +115,7 @@
         <!-- ============================================================== -->
         <aside class="left-sidebar">
             <div class="d-flex no-block nav-text-box align-items-center">
-                <span><img src="../assets/images/logo-icon.png" alt="elegant admin template"></span>
+                <span><img src="{{ URL::asset('/assets/images/logo-icon.png') }}" alt="elegant admin template"></span>
                 <a class="waves-effect waves-dark ml-auto hidden-sm-down" href="javascript:void(0)"><i
                         class="ti-menu"></i></a>
                 <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i
@@ -126,7 +126,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i
                                     class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('shipments.index') }}" aria-expanded="false"><i
                                     class="fa fa-user-circle-o"></i><span class="hide-menu">Shipments</span></a></li>
@@ -196,18 +196,18 @@
     <!-- ============================================================== -->
     @yield('script')
     <!-- All Jquery -->
-    <script src="{{ URL::asset('') }}assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="{{ URL::asset('assets/node_modules/jquery/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="{{ URL::asset('') }}assets/node_modules/popper/popper.min.js"></script>
-    <script src="{{ URL::asset('') }}assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ URL::asset('assets/node_modules/popper/popper.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{ URL::asset('') }}dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="{{ URL::asset('dist/js/perfect-scrollbar.jquery.min.js') }}"></script>
     <!--Wave Effects -->
-    <script src="{{ URL::asset('') }}dist/js/waves.js"></script>
+    <script src="{{ URL::asset('dist/js/waves.js') }}"></script>
     <!--Menu sidebar -->
-    <script src="{{ URL::asset('') }}dist/js/sidebarmenu.js"></script>
+    <script src="{{ URL::asset('dist/js/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
-    <script src="{{ URL::asset('') }}dist/js/custom.min.js"></script>
+    <script src="{{ URL::asset('dist/js/custom.min.js') }}"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->

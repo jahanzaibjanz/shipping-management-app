@@ -10,10 +10,11 @@ class Shipment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'shipper_id ',
-        'client_id ',
-        'shipping_line_id ',
-        'contact_number',
+        'shipper_id',
+        'client_id',
+        'shipping_line_id',
+        'agent_id',
+        'origin',
         'destination',
         'shipment_date',
         'delivery_date',

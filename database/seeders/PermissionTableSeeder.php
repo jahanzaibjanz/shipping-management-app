@@ -16,6 +16,10 @@ class PermissionTableSeeder extends Seeder
     public function run()
     {
         $permissions = [
+            'user-list',
+            'user-create',
+            'user-edit',
+            'user-delete',
             'role-list',
             'role-create',
             'role-edit',
@@ -32,6 +36,14 @@ class PermissionTableSeeder extends Seeder
             'shipper-create',
             'shipper-edit',
             'shipper-delete',
+            'shippingline-list',
+            'shippingline-create',
+            'shippingline-edit',
+            'shippingline-delete',
+            'shipment-list',
+            'shipment-create',
+            'shipment-edit',
+            'shipment-delete',
          ];
       
          foreach ($permissions as $permission) {

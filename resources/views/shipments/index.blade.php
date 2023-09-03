@@ -1,16 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="row">
                     <!-- column -->
-
-                    <div class="col-12">
-                        
-                        
+                    <div class="col-12">                                                
                         <div class="d-flex align-items-left">
+                            @can('shipment-create')
                             <a class="btn btn-success d-none d-lg-block m-l-15"
                                 href="{{ route('shipments.create') }}">Create New Shipment</a>
+                            @endcan
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -25,19 +23,22 @@
                                                 <th>Shipper</th>
                                                 <th>Client</th>
                                                 <th>Shipping Line</th>
+                                                <th>Agent</th>
                                                 <th>origin</th>
                                                 <th>destination</th>
                                                 <th>Shipment Date</th>
-                                                <th>Delivery Date</th>                                                
+                                                <th>Delivery Date</th>
+                                                <th>Action</th>                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach($shipments as $shipment) 
                                             <tr>
                                                 <td>#</td>
-                                                <td>{{ $shipment->shipper_id}}</td>
-                                                <td>{{ $shipment->client_id}}</td>
-                                                <td>{{ $shipment->shipping_line_id}}</td>
+                                                <td>{{ $shipment->shipper}}</td>
+                                                <td>{{ $shipment->company_name}}</td>
+                                                <td>{{ $shipment->name}}</td>
+                                                <td>{{ $shipment->agency_name}}</td>
                                                 <td>{{ $shipment->origin}}</td>
                                                 <td>{{ $shipment->destination}}</td>
                                                 <td>{{ $shipment->shipment_date}}</td>
@@ -58,48 +59,6 @@
                                                 </td>
                                             </tr>
                                             @endforeach
-                                            <!-- <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                                <td><span class="label label-danger">admin</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                                <td><span class="label label-info">member</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                                <td><span class="label label-warning">developer</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                                <td><span class="label label-success">supporter</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                                <td><span class="label label-info">member</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                                <td><span class="label label-success">supporter</span> </td>
-                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>

@@ -14,10 +14,10 @@ class ShippingLineController extends Controller
      */
     function __construct()
     {
-        //  $this->middleware('permission:shipper-list|shipper-create|shipper-edit|shipper-delete', ['only' => ['index','show']]);
-        //  $this->middleware('permission:shipper-create', ['only' => ['create','store']]);
-        //  $this->middleware('permission:shipper-edit', ['only' => ['edit','update']]);
-        //  $this->middleware('permission:shipper-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:shipper-list|shipper-create|shipper-edit|shipper-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:shipper-create', ['only' => ['create','store']]);
+         $this->middleware('permission:shipper-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:shipper-delete', ['only' => ['destroy']]);
     }
 
     public function index()

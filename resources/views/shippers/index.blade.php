@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-
 @section('content')
 <div class="row">
                     <!-- column -->
@@ -18,7 +16,6 @@
                                     <p>{{ $message }}</p>
                                 </div>
                             @endif
-
                                 <h4 class="card-title">Shippers/Shipping Agencies Table</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
                                 <div class="table-responsive">

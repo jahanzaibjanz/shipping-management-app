@@ -55,11 +55,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-12">Role</label>
+                                        <label for="roles" class="col-sm-12">Role</label>
                                         <div class="col-sm-12">
-                                            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control form-control-line','multiple')) !!}
+                                            <select name="roles[]" id="roles" class="form-control form-control-line" multiple>
+                                                @foreach($roles as $role)
+                                                    <option value="{{ $role }}">{{ $role }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                    </div>
+                                    </div>                                    
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button type="submit" class="btn btn-success">Update Profile</button>
@@ -70,5 +74,4 @@
                         </div>
                     </div>
 </div>
-{!! Form::close() !!}
 @endsection

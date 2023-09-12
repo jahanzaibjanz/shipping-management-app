@@ -8,10 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, AdminWrap lite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Elegant admin lite design, Elegant admin lite dashboard bootstrap 4 dashboard template">
-    <meta name="description"
-        content="Elegant Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, AdminWrap lite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Elegant admin lite design, Elegant admin lite dashboard bootstrap 4 dashboard template">
+    <meta name="description" content="Elegant Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/elegant-admin-lite/" />
@@ -26,9 +24,7 @@
     <link href="{{ URL::asset('dist/css/style.css') }}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="{{ URL::asset('dist/css/pages/dashboard1.css') }}" rel="stylesheet">
-
 </head>
-
 
 <body class="skin-default-dark fixed-layout">
     <!-- ============================================================== -->
@@ -78,16 +74,13 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav mr-auto">
                         <!-- This is  -->
-                        <li class="nav-item hidden-sm-up"> <a class="nav-link nav-toggler waves-effect waves-light"
-                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <li class="nav-item hidden-sm-up"> <a class="nav-link nav-toggler waves-effect waves-light" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="fa fa-search"></i></a>
+                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>
                             <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
-                                    class="srh-btn"><i class="fa fa-times"></i></a>
+                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="fa fa-times"></i></a>
                             </form>
                         </li>
                     </ul>
@@ -96,9 +89,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="{{ URL::asset('/assets/images/users/1.jpg') }}" alt="user" class="img-circle" width="30"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ URL::asset('/assets/images/users/1.jpg') }}" alt="user" class="img-circle" width="30"></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -116,32 +107,22 @@
         <aside class="left-sidebar">
             <div class="d-flex no-block nav-text-box align-items-center">
                 <span><img src="{{ URL::asset('/assets/images/logo-icon.png') }}" alt="elegant admin template"></span>
-                <a class="waves-effect waves-dark ml-auto hidden-sm-down" href="javascript:void(0)"><i
-                        class="ti-menu"></i></a>
-                <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i
-                        class="ti-menu ti-close"></i></a>
+                <a class="waves-effect waves-dark ml-auto hidden-sm-down" href="javascript:void(0)"><i class="ti-menu"></i></a>
+                <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
             </div>
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i
-                                    class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('shipments.index') }}" aria-expanded="false"><i
-                                    class="fa fa-user-circle-o"></i><span class="hide-menu">Shipments</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('clients.index') }}" aria-expanded="false"><i
-                                    class="fa fa-table"></i><span class="hide-menu"></span>Clients</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('agents.index') }}" aria-expanded="false"><i
-                                    class="fa fa-smile-o"></i><span class="hide-menu"></span>Agents</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('shippers.index') }}" aria-expanded="false"><i
-                                    class="fa fa-globe"></i><span class="hide-menu"></span>Shippers</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('shipping-lines.index') }}" aria-expanded="false"><i
-                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Shipping Lines</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('users.index') }}" aria-expanded="false"><i
-                                    class="fa fa-question-circle"></i><span class="hide-menu"></span>Users</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{ route('roles.index') }}" aria-expanded="false"><i
-                                    class="fa fa-question-circle"></i><span class="hide-menu"></span>Roles Permission</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('shipments.index') }}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Shipments</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('clients.index') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu"></span>Clients</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('agents.index') }}" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu"></span>Agents</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('shippers.index') }}" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu"></span>Shippers</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('shipping-lines.index') }}" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Shipping Lines</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('users.index') }}" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu"></span>Users</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('roles.index') }}" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu"></span>Roles Permission</a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -221,4 +202,5 @@
     <!-- Chart JS -->
     <script src="{{ URL::asset('dist/js/dashboard1.js') }}"></script>
 </body>
+
 </html>

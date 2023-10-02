@@ -77,12 +77,39 @@
                         <input type="date" name="delivery_date" class="form-control form-control-line">
                     </div>
                 </div>
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Items</th>
+                    <th>Container Type</th>
+                    <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" class="form-control"></td>
+                        <td><select class="form-control">
+                            @foreach($containertypes as $containertype)
+                            <option>{{ $containertype->type }}</option>
+                            @endforeach
+                        </select></td>
+                        <td>asd</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                    <th>ID</th>
+                    <th>Items</th>
+                    <th>Container Type</th>
+                    <th>Weight</th>
+                </tfoot>
+                </table>
                 <div class="form-group">
-
                     <button class="btn btn-success">Add Shipment</button>
-
                 </div>
-            </form>
+            </form>            
         </div>
     </div>
 </div>

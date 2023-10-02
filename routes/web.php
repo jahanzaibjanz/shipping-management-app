@@ -7,6 +7,7 @@ use App\Http\Controllers\ShipmentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShipperController;
 use App\Http\Controllers\ShippingLineController;
+use App\Http\Controllers\ContainerTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +37,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('shippers', ShipperController::class);
     Route::resource('shipping-lines', ShippingLineController::class);
     Route::resource('shipments', ShipmentController::class);
+    Route::resource('containertypes', ContainerTypeController::class);
 });

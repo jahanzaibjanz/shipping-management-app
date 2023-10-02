@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shipment_items', function (Blueprint $table) {
+        Schema::create('containers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('shipment_id'); 
             $table->foreign('shipment_id')->references('id')->on('shipments');
-            $table->text('description');
-            $table->integer('quantity');
-            $table->decimal('weight');
+            $table->string('items');
+            $table->string('cost');
+            $table->string('margin');           
+            $table->string('total');            
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipment_items');
+        Schema::dropIfExists('containers');
     }
 };

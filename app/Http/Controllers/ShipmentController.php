@@ -6,6 +6,7 @@ use App\Models\Agent;
 use App\Models\Shipment;
 use App\Models\Shipper;
 use App\Models\Client;
+use App\Models\Containertype;
 use App\Models\ShippingLine;
 use Illuminate\Http\Request;
 
@@ -45,12 +46,13 @@ class ShipmentController extends Controller
      */
     public function create()
     {
-        $user_id = auth()->user()->id;
+        $user_id = auth()->user()->id;        
+        $shippinglines = ShippingLine::select('id','name')->get();
+        $containertypes = Containertype::select('id','type','cubic_capacity','cargo_weight')->get();
         $shippers = Shipper::select('id','company_name')->get();
         $clients = Client::select('id','company_name')->get();
-        $shippinglines = ShippingLine::select('id','name')->get();
         $agents = Agent::select('id','agency_name')->get();
-        return view('shipments.create',compact('user_id','shippers','clients','shippinglines','agents'));
+        return view('shipments.create',compact('user_id','shippers','clients','shippinglines','agents','containertypes'));
         //
     }
 

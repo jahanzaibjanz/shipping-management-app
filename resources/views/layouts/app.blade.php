@@ -121,6 +121,7 @@
                         <li> <a class="waves-effect waves-dark" href="{{ route('agents.index') }}" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu"></span>Agents</a></li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('shippers.index') }}" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu"></span>Shippers</a></li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('shipping-lines.index') }}" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Shipping Lines</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('containertypes.index') }}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Container Types</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('users.index') }}" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu"></span>Users</a></li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('roles.index') }}" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu"></span>Roles Permission</a></li>
                     </ul>

@@ -5,7 +5,7 @@
     <div class="col-12">
         <div class="d-flex align-items-left">
             @can('shipper-create')
-            <a class="btn btn-success d-none d-lg-block m-l-15" href="{{ route('shippers.create') }}">Create New Shipment</a>
+            <a class="btn btn-success d-none d-lg-block m-l-15" href="{{ route('shippers.create') }}">Create New Shipper</a>
             @endcan
         </div>
         <div class="card">

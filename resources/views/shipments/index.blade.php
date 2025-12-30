@@ -40,6 +40,7 @@
                                 <td>{{ $shipment->destination}}</td>
                                 <td>{{ $shipment->shipment_date}}</td>
                                 <td>{{ $shipment->delivery_date}}</td>
+                                <td><button class="btn btn-info view-containers" data-containers='@json($shipment->containers)' data-shipper="{{ $shipment->shipper }}"> View Containers </button></td>
                                 <td>
                                     <form action="{{ route('shipments.destroy',$shipment->id) }}" method="POST">
                                         @can('shipment-edit')
@@ -63,4 +64,65 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="modal fade" id="containersModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Containers</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item</th>
+                            <th>Container Type</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody id="containersBody">
+                        <!-- dynamic -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@endsection
+@section('script')
+<script>
+    $(document).on('click', '.view-containers', function() {
+
+        let containers = $(this).data('containers');
+        let tbody = '';
+
+        if (containers.length === 0) {
+            tbody = `<tr>
+                    <td colspan="3" class="text-center">No Containers Found</td>
+                 </tr>`;
+        } else {
+            containers.forEach((container, index) => {
+                tbody += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${container.items}</td>
+                    <td>${container.types}</td>
+                    <td>${container.costs}</td>
+                </tr>
+            `;
+            });
+        }
+
+        $('#containersBody').html(tbody);
+        $('#containersModal').modal('show');
+    });
+</script>
 @endsection

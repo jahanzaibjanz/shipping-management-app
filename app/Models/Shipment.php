@@ -19,4 +19,9 @@ class Shipment extends Model
         'shipment_date',
         'delivery_date',
     ];
+
+    public function containers()
+    {
+        return $this->hasMany(Container::class);
+    }
 }

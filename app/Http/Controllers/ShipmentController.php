@@ -24,18 +24,19 @@ class ShipmentController extends Controller
         //  $this->middleware('permission:shipment-edit', ['only' => ['edit','update']]);
         //  $this->middleware('permission:shipment-delete', ['only' => ['destroy']]);
     }
-    
+
     public function index()
     {
 
-        $shipments = Shipment::join('shippers','shippers.id','=','shipments.shipper_id')
-        ->join('clients','clients.id','=','shipments.client_id')
-        ->join('shipping_lines','shipping_lines.id','=','shipments.shipping_line_id')
-        ->join('agents','agents.id','=','shipments.agent_id')
-        ->select('shipments.*','shippers.company_name as shipper','clients.company_name','shipping_lines.name','agents.agency_name')
-        ->get();
+        $shipments = Shipment::with('containers')
+            ->join('shippers', 'shippers.id', '=', 'shipments.shipper_id')
+            ->join('clients', 'clients.id', '=', 'shipments.client_id')
+            ->join('shipping_lines', 'shipping_lines.id', '=', 'shipments.shipping_line_id')
+            ->join('agents', 'agents.id', '=', 'shipments.agent_id')
+            ->select('shipments.*', 'shippers.company_name as shipper', 'clients.company_name', 'shipping_lines.name', 'agents.agency_name')
+            ->get();
 
-        return view('shipments.index',compact('shipments'))
+        return view('shipments.index', compact('shipments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -46,13 +47,13 @@ class ShipmentController extends Controller
      */
     public function create()
     {
-        $user_id = auth()->user()->id;        
-        $shippinglines = ShippingLine::select('id','name')->get();
-        $containertypes = Containertype::select('id','type','cubic_capacity','cargo_weight')->get();
-        $shippers = Shipper::select('id','company_name')->get();
-        $clients = Client::select('id','company_name')->get();
-        $agents = Agent::select('id','agency_name')->get();
-        return view('shipments.create',compact('user_id','shippers','clients','shippinglines','agents','containertypes'));
+        $user_id = auth()->user()->id;
+        $shippinglines = ShippingLine::select('id', 'name')->get();
+        $containertypes = Containertype::select('id', 'type', 'cubic_capacity', 'cargo_weight')->get();
+        $shippers = Shipper::select('id', 'company_name')->get();
+        $clients = Client::select('id', 'company_name')->get();
+        $agents = Agent::select('id', 'agency_name')->get();
+        return view('shipments.create', compact('user_id', 'shippers', 'clients', 'shippinglines', 'agents', 'containertypes'));
         //
     }
 
@@ -70,12 +71,22 @@ class ShipmentController extends Controller
             'destination' => 'required',
             'shipment_date' => 'required',
             'delivery_date' => 'required',
+            'items*' => 'required',
+            'containertypes*' => 'required',
         ]);
-        
+
         Shipment::create($request->all());
+        foreach ($request->item as $index => $item) {
+            $container = new \App\Models\Container();
+            $container->shipment_id = Shipment::latest()->first()->id;
+            $container->items = $item;
+            $container->types = Containertype::where('type', $request->containertype[$index])->first()->id;
+            $container->costs = $request->cost[$index];
+            $container->save();
+        }
 
         return redirect()->route('shipments.index')
-                        ->with('success','Product created successfully.');
+            ->with('success', 'Product created successfully.');
         //
     }
 
@@ -98,7 +109,7 @@ class ShipmentController extends Controller
      */
     public function edit(Shipment $shipment)
     {
-        return view('shipments.edit',compact('shipment'));
+        return view('shipments.edit', compact('shipment'));
     }
 
     /**
@@ -119,11 +130,11 @@ class ShipmentController extends Controller
             'shipment_date' => 'required',
             'delivery_date' => 'required',
         ]);
-    
+
         $shipment->update($request->all());
-    
+
         return redirect()->route('shipments.index')
-                        ->with('success','Product updated successfully');
+            ->with('success', 'Product updated successfully');
         //
     }
 
@@ -136,9 +147,9 @@ class ShipmentController extends Controller
     public function destroy(Shipment $shipment)
     {
         $shipment->delete();
-    
+
         return redirect()->route('shipments.index')
-                        ->with('success','Product deleted successfully');
+            ->with('success', 'Product deleted successfully');
         //
     }
 }

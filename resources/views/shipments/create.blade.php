@@ -34,13 +34,13 @@
                 <div class="form-group col-md-12" style="display: flex;">
 
                     <select class="form-control" name="shipper_id" required>
-                        <option selected disabled>Select Shipper</option>
+                        <option selected disabled>Shippers</option>
                         @foreach($shippers as $shipper)
                         <option value="{{$shipper->id}}">{{ $shipper->company_name }}</option>
                         @endforeach
                     </select>
                     <select class="form-control" name="client_id" required>
-                        <option selected disabled>Select Clients</option>
+                        <option selected disabled>Clients</option>
                         @foreach($clients as $client)
                         <option value="{{$client->id}}">{{ $client->company_name }}</option>
                         @endforeach
@@ -86,17 +86,17 @@
                             <th>Weight</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody">
                         <tr>
                             <td>1</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td><select class="form-control">
+                            <td><input type="text" class="form-control" placeholder="Items" name="item[]"></td>
+                            <td><select class="form-control" name="containertype[]">
                                     @foreach($containertypes as $containertype)
                                     <option>{{ $containertype->type }}</option>
                                     @endforeach
                                 </select></td>
-                            <td>asd</td>
-                            <td><button type="button" id="addship" class="btn btn-success">+</button></td>
+                            <td><input type="text" class="form-control" placeholder="Cost" name="cost[]"></td>
+                            <td><button type="button" id="btn" class="btn btn-success">+</button></td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -119,8 +119,22 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        $('#addship').click(function() {
-            alert('hi');
+
+        $("#btn").click(function() {
+            $("#tbody").append(`<tr><td>2</td>
+            <td><input type="text" placeholder="Items" class="form-control" name="item[]"/></td>
+            <td><select class="form-control" name="containertype[]">
+            @foreach($containertypes as $containertype)
+            <option>{{ $containertype->type }}</option>
+            @endforeach
+            </select></td>
+            <td><input type="text" class="form-control" placeholder="Cost" name="cost[]"></td>
+            <td><button type="button" class="btn btn-danger remove-row">x</button></td>
+            </tr>`);
+        });
+
+        $("#tbody").on("click", ".remove-row", function() {
+            $(this).closest("tr").remove();
         });
     });
 </script>

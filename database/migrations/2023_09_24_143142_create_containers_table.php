@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('containers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('shipment_id'); 
+            $table->unsignedBigInteger('shipment_id');
             $table->foreign('shipment_id')->references('id')->on('shipments');
             $table->string('items');
-            $table->string('cost');
-            $table->string('margin');           
-            $table->string('total');            
+            $table->string('types');
+            $table->string('costs');
             $table->timestamps();
         });
     }

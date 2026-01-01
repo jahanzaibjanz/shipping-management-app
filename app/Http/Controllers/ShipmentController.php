@@ -7,6 +7,7 @@ use App\Models\Shipment;
 use App\Models\Shipper;
 use App\Models\Client;
 use App\Models\Containertype;
+use App\Models\Container;
 use App\Models\ShippingLine;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,9 @@ class ShipmentController extends Controller
             ->select('shipments.*', 'shippers.company_name as shipper', 'clients.company_name', 'shipping_lines.name', 'agents.agency_name')
             ->get();
 
-        return view('shipments.index', compact('shipments'))
+        $containerTypes = ContainerType::pluck('type', 'id');
+
+        return view('shipments.index', compact('shipments', 'containerTypes'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -109,7 +112,18 @@ class ShipmentController extends Controller
      */
     public function edit(Shipment $shipment)
     {
-        return view('shipments.edit', compact('shipment'));
+        $shippers = Shipper::all();
+        $clients = Client::all();
+        $shippinglines = ShippingLine::all();
+        $agents = Agent::all();
+
+        return view('shipments.edit', compact(
+            'shipment',
+            'shippers',
+            'clients',
+            'shippinglines',
+            'agents'
+        ));
     }
 
     /**

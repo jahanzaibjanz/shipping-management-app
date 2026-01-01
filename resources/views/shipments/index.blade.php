@@ -40,7 +40,7 @@
                                 <td>{{ $shipment->destination}}</td>
                                 <td>{{ $shipment->shipment_date}}</td>
                                 <td>{{ $shipment->delivery_date}}</td>
-                                <td><button class="btn btn-info view-containers" data-containers='@json($shipment->containers)' data-shipper="{{ $shipment->shipper }}"> View Containers </button></td>
+                                <td><button class="btn btn-info view-containers" data-containers='@json($shipment->containers)' data-types='@json($containerTypes)'> View Containers </button></td>
                                 <td>
                                     <form action="{{ route('shipments.destroy',$shipment->id) }}" method="POST">
                                         @can('shipment-edit')
@@ -102,6 +102,7 @@
     $(document).on('click', '.view-containers', function() {
 
         let containers = $(this).data('containers');
+        let typesMap = $(this).data('types');
         let tbody = '';
 
         if (containers.length === 0) {
@@ -114,7 +115,7 @@
                 <tr>
                     <td>${index + 1}</td>
                     <td>${container.items}</td>
-                    <td>${container.types}</td>
+                    <td>${typesMap[container.types] ?? '-'}</td>
                     <td>${container.costs}</td>
                 </tr>
             `;

@@ -24,4 +24,23 @@ class Shipment extends Model
     {
         return $this->hasMany(Container::class);
     }
+    public function shipper()
+    {
+        return $this->belongsTo(Shipper::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function shippingLine()
+    {
+        return $this->belongsTo(ShippingLine::class);
+    }
+
+    public function agent()
+    {
+        return $this->belongsTo(Agent::class);
+    }
 }

@@ -15,8 +15,7 @@
                     <p>{{ $message }}</p>
                 </div>
                 @endif
-                <h4 class="card-title">Shippers/Shipping Agencies Table</h4>
-                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
+                <h4 class="card-title">Shippers/Shipping Agencies</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>

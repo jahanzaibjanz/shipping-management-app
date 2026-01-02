@@ -13,7 +13,8 @@ class Container extends Model
         'shipment_id',
         'containertype_id',
         'items',
-        'cost',
+        'types',
+        'costs',
     ];
     public function shipment()
     {

@@ -115,14 +115,18 @@ class ShipmentController extends Controller
         $shippers = Shipper::all();
         $clients = Client::all();
         $shippinglines = ShippingLine::all();
+        $containertypes = Containertype::all();
         $agents = Agent::all();
+        $containers = Container::where('shipment_id', $shipment->id)->get();
 
         return view('shipments.edit', compact(
             'shipment',
             'shippers',
             'clients',
+            'containertypes',
             'shippinglines',
-            'agents'
+            'agents',
+            'containers'
         ));
     }
 
@@ -135,20 +139,34 @@ class ShipmentController extends Controller
      */
     public function update(Request $request, Shipment $shipment)
     {
-        request()->validate([
-            'shipper_id ' => 'required',
-            'client_id ' => 'required',
-            'shipping_line_id ' => 'required',
-            'origin' => 'required',
-            'destination' => 'required',
-            'shipment_date' => 'required',
-            'delivery_date' => 'required',
+
+        // 1️⃣ Update shipment
+        $shipment->update([
+            'agent_id' => $request->agent_id,
+            'shipper_id' => $request->shipper_id,
+            'client_id' => $request->client_id,
+            'shipping_line_id' => $request->shipping_line_id,
+            'origin' => $request->origin,
+            'destination' => $request->destination,
+            'shipment_date' => $request->shipment_date,
+            'delivery_date' => $request->delivery_date,
         ]);
 
-        $shipment->update($request->all());
+        // remove old containers
+        Container::where('shipment_id', $shipment->id)->delete();
+
+        // insert updated containers
+        foreach ($request->item as $key => $item) {
+            Container::create([
+                'shipment_id' => $shipment->id,
+                'items' => $item,
+                'types' => $request->containertype[$key],
+                'costs' => $request->cost[$key],
+            ]);
+        }
 
         return redirect()->route('shipments.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Shipment updated successfully');
         //
     }
 

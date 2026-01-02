@@ -91,9 +91,84 @@
                         <input type="date" name="delivery_date" class="form-control form-control-line" value="{{ $shipment->delivery_date }}">
                     </div>
                 </div>
-
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Items</th>
+                            <th>Container Type</th>
+                            <th>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        @foreach($containers as $key => $container)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>
+                                <input type="text"
+                                    class="form-control"
+                                    name="item[]"
+                                    value="{{ $container->items }}">
+                            </td>
+                            <td>
+                                <select class="form-control" name="containertype[]">
+                                    @foreach($containertypes as $containertype)
+                                    <option value="{{ $containertype->id }}"
+                                        {{ $container->types == $containertype->id ? 'selected' : '' }}>
+                                        {{ $containertype->type }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="cost[]" value="{{ $container->costs }}">
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success add-row">+</button>
+                                <button type="button" class="btn btn-danger remove-row">x</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <button class="btn btn-success">Update Shipment</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+    $(document).on('click', '.add-row', function() {
+        let count = $('#tbody tr').length + 1;
+
+        $('#tbody').append(`
+        <tr>
+            <td>${count}</td>
+            <td><input type="text" name="item[]" class="form-control"></td>
+            <td>
+                <select name="containertype[]" class="form-control">
+                    @foreach($containertypes as $containertype)
+                        <option value="{{ $containertype->id }}">
+                            {{ $containertype->type }}
+                        </option>
+                    @endforeach
+                </select>
+            </td>
+            <td><input type="text" name="cost[]" class="form-control"></td>
+            <td>
+                <button type="button" class="btn btn-success add-row">+</button>
+                <button type="button" class="btn btn-danger remove-row">x</button>
+            </td>
+        </tr>
+    `);
+    });
+
+    // remove row
+    $(document).on('click', '.remove-row', function() {
+        $(this).closest('tr').remove();
+    });
+</script>
 @endsection

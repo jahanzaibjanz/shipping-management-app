@@ -178,10 +178,13 @@ class ShipmentController extends Controller
      */
     public function destroy(Shipment $shipment)
     {
+        // pehle related containers delete karo
+        Container::where('shipment_id', $shipment->id)->delete();
+
+        // phir shipment delete karo
         $shipment->delete();
 
         return redirect()->route('shipments.index')
-            ->with('success', 'Product deleted successfully');
-        //
+            ->with('success', 'Shipment deleted successfully');
     }
 }

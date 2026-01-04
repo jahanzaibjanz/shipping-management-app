@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+	<div class="col-md-5 align-self-center">
+		<h4 class="text-themecolor">Clients</h4>
+	</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
 <div class="row">
 	<div class="col-lg-12 margin-tb">
 		<div class="pull-left">
